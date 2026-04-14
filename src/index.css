@@ -1,0 +1,205 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #0f172a;
+  color: #e2e8f0;
+  line-height: 1.6;
+}
+
+code {
+  font-family:
+    source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+h2 {
+  color: black;
+}
+
+h3 {
+  color: black
+}
+
+/* PERFORMANCE */
+.hero-content {
+  will-change: transform, opacity;
+}
+
+.project-card {
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+.skill-category {
+  will-change: transform;
+}
+
+/* HEADER */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.header.scrolled {
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.tagline {
+  color: #cbd5f5; /* stable color */
+  opacity: 1;
+}
+/* DESKTOP NAV */
+.nav.desktop {
+  display: flex;
+  gap: 20px;
+}
+
+/* HAMBURGER BUTTON */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* HAMBURGER ICON */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hamburger span {
+  width: 22px;
+  height: 2px;
+  background: #e2e8f0;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+/* ANIMATION → X */
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* BACKDROP */
+.menu-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  z-index: 1500;
+}
+
+/* SLIDE-IN MENU */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 260px;
+  height: 100vh;
+  background: #0f172a;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 2000;
+}
+
+.mobile-menu a {
+  color: #e2e8f0;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: all 0.2s ease;
+}
+
+.mobile-menu a:hover {
+  transform: translateX(6px);
+  opacity: 0.8;
+}
+
+/* SKILLS */
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: all 0.25s ease;
+  cursor: default;
+}
+
+.skill-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.skill-icon {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  transition: transform 0.2s ease;
+}
+
+.skill-item:hover .skill-icon {
+  transform: scale(1.2);
+}
+
+/* MOBILE BREAKPOINT */
+@media (max-width: 768px) {
+  .nav.desktop {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+.close-menu {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #e2e8f0;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.status.in-progress {
+  background: #facc15; /* yellow */
+  color: #000;
+}
+
+.status.completed {
+  background: #22c55e; /* green */
+  color: #000;
+}
+
+.status.incoming {
+  background: #60a5fa; /* soft blue */
+  color: #000;
+}
