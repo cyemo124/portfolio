@@ -101,7 +101,7 @@ function Projects() {
         <motion.h2 variants={fadeUp}>My Projects</motion.h2>
 
         <motion.p className="section-intro" variants={fadeUp}>
-          Three diverse full-stack projects showcasing my core skills
+          Diverse full-stack projects showcasing my core skills
         </motion.p>
 
         <motion.div className="projects-grid" variants={container}>
