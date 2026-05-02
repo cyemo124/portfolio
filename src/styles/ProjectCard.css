@@ -6,6 +6,12 @@
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
+
+}
+
+.project-card.collapsed{
+  height: 720px;
+  overflow: hidden;
 }
 .project-image {
   aspect-ratio: 16 / 9;

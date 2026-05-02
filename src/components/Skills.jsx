@@ -9,9 +9,18 @@ import {
   FaNodeJs,
   FaGitAlt,
   FaGithub,
+  FaCloud, // Cloudinary
+  FaServer, // Render/Vercel deployment
 } from "react-icons/fa";
 
-import { SiExpress, SiMongodb, SiPostman } from "react-icons/si";
+import {
+  SiExpress,
+  SiMongodb,
+  SiPostman,
+  SiTailwindcss, // Tailwind CSS
+  SiVite, // Vite
+  SiCloudinary, // Cloudinary
+} from "react-icons/si";
 
 const container = {
   hidden: {},
@@ -56,10 +65,13 @@ function Skills() {
     {
       category: "Frontend",
       skills: [
+        { name: "React", icon: FaReact },
+        { name: "Vite", icon: SiVite },
+        { name: "Tailwind CSS", icon: SiTailwindcss },
+        { name: "Framer Motion", icon: FaReact }, // No official icon, using React as proxy
         { name: "HTML5", icon: FaHtml5 },
         { name: "CSS3", icon: FaCss3Alt },
         { name: "JavaScript", icon: FaJs },
-        { name: "React", icon: FaReact },
       ],
     },
     {
@@ -67,18 +79,25 @@ function Skills() {
       skills: [
         { name: "Node.js", icon: FaNodeJs },
         { name: "Express.js", icon: SiExpress },
+        { name: "JWT Auth", icon: FaServer },
+        { name: "REST API Design", icon: SiPostman },
       ],
     },
     {
-      category: "Database",
-      skills: [{ name: "MongoDB", icon: SiMongodb }],
+      category: "Database & Storage",
+      skills: [
+        { name: "MongoDB Atlas", icon: SiMongodb },
+        { name: "Cloudinary", icon: SiCloudinary },
+      ],
     },
     {
-      category: "Tools",
+      category: "DevOps & Tools",
       skills: [
         { name: "Git", icon: FaGitAlt },
         { name: "GitHub", icon: FaGithub },
         { name: "Postman", icon: SiPostman },
+        { name: "Vercel", icon: FaServer },
+        { name: "Render", icon: FaCloud },
       ],
     },
   ];
@@ -95,7 +114,8 @@ function Skills() {
         <motion.h2 variants={fadeUp}>My Skills</motion.h2>
 
         <motion.p className="section-intro" variants={fadeUp}>
-          Technical skills built through real project experience
+          Technical skills built through real project experience — including a
+          full-stack gym management platform with 15+ features
         </motion.p>
 
         <motion.div className="skills-grid" variants={container}>

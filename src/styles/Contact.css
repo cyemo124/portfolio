@@ -7,6 +7,7 @@
   margin: 0 auto;
 }
 
+
 .contact h2 {
   font-size: 2.5rem;
   text-align: center;
@@ -27,14 +28,18 @@
   justify-content: center;
 }
 
+.contact-info p {
+  color: #000000;
+}
+
 .info-item h3 {
-  color: #0066cc;
+  color: #000000;
   font-size: 1rem;
   margin-bottom: 0.5rem;
 }
 
 .info-item a {
-  color: #0066cc;
+  /* color: #0066cc; */
   font-weight: 500;
   text-decoration: none;
 }
@@ -106,4 +111,17 @@
   .contact-form {
     order: 1;
   }
+}
+
+.btn-loading {
+  opacity: 0.7;
+  cursor: not-allowed;
+  background: #9ca3af !important; /* Gray out the button */
+}
+
+input:disabled,
+textarea:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: #f3f4f6;
 }

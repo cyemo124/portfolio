@@ -7,7 +7,7 @@ function ProjectCard({ project }) {
 
   return (
     <motion.div
-      className="project-card"
+      className={`project-card ${!isExpanded ? "collapsed" : ''}`}
       layout
       whileHover={{
         y: -8,
@@ -34,14 +34,14 @@ function ProjectCard({ project }) {
           <p className="subtitle">{project.subtitle}</p>
         </div>
 
-        <motion.span
+        {/* <motion.span
           className={`status ${project.status.toLowerCase().replace(" ", "-")}`}
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.4 }}
         >
           {project.status}
-        </motion.span>
+        </motion.span> */}
       </div>
 
       <p className="description">{project.description}</p>

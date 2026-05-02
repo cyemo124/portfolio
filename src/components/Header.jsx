@@ -69,7 +69,7 @@ function Header() {
               href={`#${item.toLowerCase()}`}
               whileHover={{ y: -2 }}
               style={{
-                color: scrolled ? "#e2e8f0" : "#94a3b8", // 👈 dark at top, light when scrolled
+                color: scrolled ? "#e2e8f0" : "#555555", // 👈 dark at top, light when scrolled
                 fontWeight: 500,
                 textDecoration: "none",
                 transition: "color 0.3s ease",

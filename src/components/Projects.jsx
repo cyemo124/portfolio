@@ -33,6 +33,44 @@ function Projects() {
   const projects = [
     {
       id: 1,
+      title: "J³ Fitness",
+      subtitle: "Gym Management & Member Platform",
+      description:
+        "Full-stack gym management platform with class booking, trainer profiles, workout tracking, and admin dashboard.",
+      problem:
+        "Local gyms lack digital tools for class scheduling, trainer management, and member workout tracking — everything runs on paper or scattered apps.",
+      solution:
+        "Built an all-in-one platform where members book classes, track workouts, manage memberships, and admins handle trainers, payments, and analytics in one place.",
+      live: "https://j3fitness.vercel.app",
+      coverImage: "/images/j3_img.png",
+      tech: [
+        "React",
+        "Vite",
+        "Tailwind CSS",
+        "Framer Motion",
+        "Node.js",
+        "Express.js",
+        "MongoDB Atlas",
+        "Cloudinary",
+        "JWT Auth",
+        "Render",
+        "Vercel",
+      ],
+      features: [
+        "Role-based auth (member, trainer, admin)",
+        "Class booking with capacity tracking",
+        "Trainer profiles with face-aware image cropping",
+        "Workout routine builder & history",
+        "Real-time membership status & streaks",
+        "Admin dashboard with analytics",
+        "Trainer application & approval system",
+        "Responsive mobile-first design",
+      ],
+      github: "https://github.com/cyemo124/J3fitness",
+      status: "Live", // or "Completed" or "In Progress"
+    },
+    {
+      id: 2,
       title: "Givex",
       subtitle: "Money-Gifting & Request Platform",
       description:
@@ -54,7 +92,7 @@ function Projects() {
       status: "In Progress",
     },
     {
-      id: 2,
+      id: 3,
       title: "FIT-TRACK",
       subtitle: "Personal Health & Fitness Dashboard",
       description:
@@ -63,7 +101,7 @@ function Projects() {
         "Users lacked a centralized, persistent way to track weight progression, meal intake, and fitness goals across devices without losing their data when switching browsers or clearing cache.",
       solution:
         "Built a secure Next.js application with MongoDB backend, allowing users to create accounts, persist their fitness data, and access personalized dashboards with interactive charts and meal logging from any device.",
-      coverImage: "/images/fit_track_img.png",  
+      coverImage: "/images/fit_track_img.png",
       tech: [
         "Next.js",
         "TypeScript",

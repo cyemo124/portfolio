@@ -1,6 +1,8 @@
+// src/components/Contact.jsx
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "../styles/Contact.css";
+import emailjs from "@emailjs/browser";
 
 const container = {
   hidden: {},
@@ -36,6 +38,7 @@ function Contact() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false); // ← Loading state
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -45,15 +48,35 @@ function Contact() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    setSubmitted(true);
+    setIsLoading(true); // ← Start loading
 
-    setTimeout(() => {
+    try {
+      const result = await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+      );
+
+      console.log(result.text);
+
+      setSubmitted(true);
       setFormData({ name: "", email: "", message: "" });
-      setSubmitted(false);
-    }, 3000);
+
+      setTimeout(() => {
+        setSubmitted(false);
+      }, 3000);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsLoading(false); // ← Stop loading (success or error)
+    }
   };
 
   return (
@@ -74,12 +97,9 @@ function Contact() {
         <div className="contact-content">
           {/* LEFT SIDE */}
           <motion.div className="contact-info" variants={fadeUp}>
+            <h3>Email</h3>
+            <p>cyemo21@gmail.com</p>
             {[
-              {
-                title: "Email",
-                value: "cyemo21@gmail.com",
-                link: "mailto:cyemo21@gmail.com",
-              },
               {
                 title: "GitHub",
                 value: "github.com/cyemo124",
@@ -95,7 +115,6 @@ function Contact() {
                 <h3>{item.title}</h3>
                 <a
                   href={item.link}
-                  target={item.link.startsWith("http") ? "_blank" : "_self"}
                   rel="noopener noreferrer"
                 >
                   {item.value}
@@ -126,6 +145,7 @@ function Contact() {
                   value={formData[field]}
                   onChange={handleChange}
                   required
+                  disabled={isLoading} // ← Disable during send
                   placeholder={
                     field === "name" ? "Your name" : "your.email@example.com"
                   }
@@ -142,19 +162,20 @@ function Contact() {
                 value={formData.message}
                 onChange={handleChange}
                 required
-                placeholder="Tell me about your opportunity..."
+                disabled={isLoading} // ← Disable during send
+                placeholder="What would you like to build ?"
                 rows="5"
                 whileFocus={{ scale: 1.02 }}
               />
             </motion.div>
 
             <motion.button
-              type="submit"
-              className="btn btn-primary"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
+              className={`btn btn-primary ${isLoading ? "btn-loading" : ""}`}
+              whileHover={!isLoading ? { scale: 1.05, y: -2 } : {}}
+              whileTap={!isLoading ? { scale: 0.95 } : {}}
+              disabled={isLoading} // ← Disable button
             >
-              Send Message
+              {isLoading ? "Sending..." : "Send Message"}
             </motion.button>
 
             <AnimatePresence>
