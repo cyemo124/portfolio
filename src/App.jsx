@@ -18,8 +18,8 @@ function App() {
       <Header />
       <main>
         <Hero />
-        <Projects />
         <Skills />
+        <Projects />
         <Contact />
       </main>
       <Footer />
